@@ -44,7 +44,7 @@ hydra -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> 
 ### Immunity Debugger (Finding bad characters)
 ```
 !mona bytearray -b "\x00"
-!mona compare -f C:\mona\oscp\bytearray.bin -a <address>
+!mona compare -f <binary file> -a <address>
 ```
 
 ### Immunity Debugger (Finding a jump point)
