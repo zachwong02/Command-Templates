@@ -63,3 +63,8 @@ hydra -t -V -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIREC
 ```
 !mona jmp -r esp -cpb [bad characters]
 ```
+
+### Volatility 3 (Dumping Windows Files)
+```
+./vol.py -f <PATH_TO_MEMDUMP> windows.dumpfiles.DumpFiles --dump --pid <PID> 
+```
