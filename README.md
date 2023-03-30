@@ -68,3 +68,8 @@ hydra -t -V -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIREC
 ```
 ./vol.py -f <PATH_TO_MEMDUMP> windows.dumpfiles.DumpFiles --dump --pid <PID> 
 ```
+
+### Examining .DS_Store
+```
+xxd -p <path/to/.DS_Store> | sed 's/00//g' | tr -d '\n' | sed 's/\([0-9A-F]\{2\}\)/0x\1 /g' | xxd -r -p | strings | sed 's/ptb[LN]ustr//g'
+```
