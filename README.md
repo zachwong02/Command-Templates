@@ -72,3 +72,8 @@ hydra -l usernames.txt -P <PASSWORD> <IP_ADDRESS> http-get / -V
 ```
 xxd -p <path/to/.DS_Store> | sed 's/00//g' | tr -d '\n' | sed 's/\([0-9A-F]\{2\}\)/0x\1 /g' | xxd -r -p | strings | sed 's/ptb[LN]ustr//g'
 ```
+
+### Connecting to pop3 with SSL
+```
+openssl s_client -connect <IP_ADDRESS>:<PORT> -crlf -quiet
+```
