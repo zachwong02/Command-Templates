@@ -44,7 +44,7 @@ hydra -S -v -l <USERNAME> -P <PASSWORD> -s 995 -f <IP_ADDRESS> <SERVICE> -V
 
 ### hydra (http-post-form)
 ```
-hydra -t 4 -V -l <USERNAME> -P <PASSWORD_LIST> http-post-form <IP_ADDRESS> "<DIRECTORY> : <RAW_POST_REQUEST> <ERROR_MESSAGE>"
+hydra -t 4 -V -l <USERNAME> -P <PASSWORD_LIST> <IP_ADDRESS> http-post-form "<DIRECTORY>:<RAW_POST_REQUEST>:<ERROR_MESSAGE>"
 ```
 
 ### hydra (pop up login page)
